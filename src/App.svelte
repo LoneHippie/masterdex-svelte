@@ -3,12 +3,12 @@
 	import NoGrid from "./components/NoGrid/NoGrid.svelte";
 	import Grid from "./components/Grid/Grid.svelte";
 
-	import { pokemon } from "./store";
+	import { pokemonList, isLoading } from "./store";
 </script>
 
 <Layout>
-	{#if $pokemon.length}
-		<Grid pokemon={pokemon} />
+	{#if $pokemonList.length && !$isLoading}
+		<Grid pokemonList={pokemonList} />
 	{:else}
 		<NoGrid />
 	{/if}
