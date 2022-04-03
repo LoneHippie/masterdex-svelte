@@ -16,7 +16,7 @@ const useSearch = () => {
         getAllNames: async() => await namesQuery()
     }
 
-    const runQuery = async(action: queryAction, param: any) => {
+    const runSearch = async(action: queryAction, param: any) => {
         isLoading.set(true);
         let res;
         switch(action) {
@@ -42,9 +42,9 @@ const useSearch = () => {
     }
 
     const setPokemon = {
-        byName: async (name: string) => runQuery(queryAction.NAME, name),
-        byGen: async (gen: number) => runQuery(queryAction.GEN, gen),
-        byType: async (type: string) => runQuery(queryAction.TYPE, type)
+        byName: async (name: string) => runSearch(queryAction.NAME, name),
+        byGen: async (gen: number) => runSearch(queryAction.GEN, gen),
+        byType: async (type: string) => runSearch(queryAction.TYPE, type)
     }
 
     return {
