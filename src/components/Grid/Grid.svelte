@@ -2,12 +2,12 @@
     import CardMini from "../CardMini/CardMini.svelte";
     import type { Writable } from "svelte/store";
 
-    export let pokemon: Writable<any[]>;
+    export let pokemonList: Writable<any[]>;
 </script>
 
 <div class="grid">
-    {#each $pokemon as pokemonEntry}
-        <CardMini pokemon={pokemonEntry} />
+    {#each $pokemonList as pokemon}
+        <CardMini pokemon={pokemon} />
     {/each}
 </div>
 
