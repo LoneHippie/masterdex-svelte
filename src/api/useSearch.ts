@@ -1,5 +1,6 @@
 import { pokemonList, isLoading } from "../store";
 import { genQuery, typeQuery, searchQuery, namesQuery} from "./pokeapi";
+import { Pokemon } from "../types";
 
 enum queryAction {
     GEN,
@@ -16,9 +17,9 @@ const useSearch = () => {
         getAllNames: async() => await namesQuery()
     }
 
-    const runSearch = async(action: queryAction, param: any) => {
+    const runSearch = async(action: queryAction, param: any): Promise<Pokemon[]> => {
         isLoading.set(true);
-        let res;
+        let res: any;
         switch(action) {
             case queryAction.GEN:
                 res = await searchPokemon.byGen(param);
@@ -28,10 +29,19 @@ const useSearch = () => {
                 break;
             case queryAction.NAME:
                 res = await searchPokemon.byName(param);
+                break;
             default:
                 return;
         }
-        const list = res.map(el => {
+        const list: Pokemon[] = res.map((el: any) => {
+            for (const key in el) {
+                if (key.includes("pokemon_v2_pokemon")) {
+                    const shortenedKey = key.slice(18);
+                    const tempVal = el[key];
+                    delete el[key];
+                    el[shortenedKey] = tempVal;
+                }
+            }
             return {...el, sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${el.id}.png`}
         })
         pokemonList.set([]);
