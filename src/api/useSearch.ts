@@ -34,14 +34,6 @@ const useSearch = () => {
                 return;
         }
         const list: Pokemon[] = res.map((el: any) => {
-            for (const key in el) {
-                if (key.includes("pokemon_v2_pokemon")) {
-                    const shortenedKey = key.slice(18);
-                    const tempVal = el[key];
-                    delete el[key];
-                    el[shortenedKey] = tempVal;
-                }
-            }
             return {...el, sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${el.id}.png`}
         })
         pokemonList.set([]);

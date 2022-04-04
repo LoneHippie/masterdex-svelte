@@ -1,3 +1,5 @@
+import { Pokemon } from "../types";
+
 const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 
 const queryOptions = (query: string) => {
@@ -19,20 +21,20 @@ const queryBodies = {
         id
         height
         weight
-        pokemon_v2_pokemonabilities {
-            pokemon_v2_ability {
+        abilities: pokemon_v2_pokemonabilities {
+            ability: pokemon_v2_ability {
                 name
-                pokemon_v2_abilityeffecttexts(where: {language_id: {_eq: 9}}) {
-                    short_effect
+                effects: pokemon_v2_abilityeffecttexts(where: {language_id: {_eq: 9}}) {
+                    shortEffect: short_effect
                 }
             }
         }
-        pokemon_v2_pokemonstats {
-            base_stat
-            stat_id
+        stats: pokemon_v2_pokemonstats {
+            baseStat: base_stat
+            statId: stat_id
         }
-        pokemon_v2_pokemontypes {
-            pokemon_v2_type {
+        types: pokemon_v2_pokemontypes {
+            type: pokemon_v2_type {
                 name
                 id
             }
@@ -96,7 +98,7 @@ export function typeQuery(type: string) {
     );
 }
 
-async function pokemonQuery(options: Object) {
+async function pokemonQuery(options: Object): Promise<void | Pokemon> {
     
     const pokemon = fetch(url, options)
         .then(handleResponse)
@@ -107,12 +109,12 @@ async function pokemonQuery(options: Object) {
 };
 
 function handleResponse(res: any) {
-    return res.json().then((resJSON) => {
+    return res.json().then((resJSON: JSON) => {
         return res.ok ? resJSON : Promise.reject(resJSON)
     });
 };
 
-function handleData(data: any) {
+function handleData(data: any): Pokemon {
     return data.data.pokemon_v2_pokemon;
 };
 

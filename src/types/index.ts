@@ -6,5 +6,5 @@ export type Pokemon = {
     stats: Array<any>;
     types: Array<any>;
     weight: Number;
-    sprite: string | null;
+    sprite?: string | null;
 }
