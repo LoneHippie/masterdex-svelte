@@ -1,5 +1,7 @@
 <script lang="ts">
-    export let pokemon: any;
+    import type { Pokemon } from "../../types";
+
+    export let pokemon: Pokemon;
 </script>
 
 <div class="pokemon">
