@@ -2,6 +2,13 @@ import type { Pokemon } from "../types";
 
 const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 
+
+const standardOnly = true;
+
+const filters = {
+    standardVariantsOnly: `{is_default: {_eq: ${standardOnly}}}`
+}
+
 const queryOptions = (query: string) => {
     return {
         method: 'POST',
@@ -45,7 +52,7 @@ const queryBodies = {
 export function namesQuery() {
     const namesQuery = `
         query {
-            pokemon_v2_pokemon {
+            pokemon_v2_pokemon(where: ${filters.standardVariantsOnly}) {
                 name
             }
         }
@@ -59,7 +66,7 @@ export function namesQuery() {
 export function searchQuery(search: string) {
     const searchQuery = `
         query {
-            pokemon_v2_pokemon(where: {name: {_eq: ${search}}}) {
+            pokemon_v2_pokemon(where: {name: {_eq: ${search}}, _and: ${filters.standardVariantsOnly}}) {
                 ${queryBodies.pokemon_v2}
             }
         }
@@ -73,7 +80,7 @@ export function searchQuery(search: string) {
 export function genQuery(gen: number) {
     const genQuery = `
         query {
-            pokemon_v2_pokemon(where: {pokemon_v2_pokemonspecy: {pokemon_v2_generation: {id: {_eq: ${gen}}}}}) {
+            pokemon_v2_pokemon(where: {pokemon_v2_pokemonspecy: {pokemon_v2_generation: {id: {_eq: ${gen}}}}, _and: ${filters.standardVariantsOnly}}) {
                 ${queryBodies.pokemon_v2}
             }
         }
@@ -87,7 +94,7 @@ export function genQuery(gen: number) {
 export function typeQuery(type: string) {
     const typeQuery = `
         query {
-            pokemon_v2_pokemon(where: {pokemon_v2_pokemontypes: {pokemon_v2_type: {name: {_eq: ${type}}}}}) {
+            pokemon_v2_pokemon(where: {pokemon_v2_pokemontypes: {pokemon_v2_type: {name: {_eq: ${type}}}}, _and: ${filters.standardVariantsOnly}}) {
                 ${queryBodies.pokemon_v2}
             }
         }
