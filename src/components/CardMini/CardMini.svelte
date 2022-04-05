@@ -29,8 +29,8 @@
         height: 85%;
     }
     span {
-        font-size: 2.2rem;
-        margin-top: 3rem;
+        font-size: 2rem;
+        margin-top: 1rem;
         text-align: center;
         height: 7.5%;
     }
