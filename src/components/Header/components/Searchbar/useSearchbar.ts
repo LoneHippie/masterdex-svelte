@@ -1,4 +1,4 @@
-import useSearch from "../../../api/useSearch";
+import useSearch from "../../../../api/useSearch";
 const { setPokemon, searchPokemon } = useSearch();
 
 const useSearchbar = () => {

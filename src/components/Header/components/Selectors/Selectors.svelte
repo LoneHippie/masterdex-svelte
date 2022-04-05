@@ -1,5 +1,5 @@
 <script lang="ts">
-    import useSearch from "../../../api/useSearch";
+    import useSearch from "../../../../api/useSearch";
     const { setPokemon } = useSearch();
 
     let genSelect: number;

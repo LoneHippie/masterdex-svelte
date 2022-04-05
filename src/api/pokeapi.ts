@@ -1,4 +1,4 @@
-import { Pokemon } from "../types";
+import type { Pokemon } from "../types";
 
 const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 
@@ -98,7 +98,7 @@ export function typeQuery(type: string) {
     );
 }
 
-async function pokemonQuery(options: Object): Promise<void | Pokemon> {
+async function pokemonQuery(options: Object): Promise<void | Pokemon | any> {
     
     const pokemon = fetch(url, options)
         .then(handleResponse)

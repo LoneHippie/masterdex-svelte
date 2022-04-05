@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Searchbar from "./components/Searchbar.svelte";  
-    import Selectors from "./components/Selectors.svelte"; 
+    import Searchbar from "./components/Searchbar/Searchbar.svelte";  
+    import Selectors from "./components/Selectors/Selectors.svelte"; 
 </script>
 
 <header>
