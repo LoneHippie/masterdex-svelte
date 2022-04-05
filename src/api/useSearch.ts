@@ -1,6 +1,6 @@
 import { pokemonList, isLoading } from "../store";
 import { genQuery, typeQuery, searchQuery, namesQuery} from "./pokeapi";
-import { Pokemon } from "../types";
+import type { Pokemon } from "../types";
 
 enum queryAction {
     GEN,
