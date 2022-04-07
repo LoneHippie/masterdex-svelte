@@ -15,10 +15,10 @@
 <style>
     .grid {
         height: calc(100vh - var(--header-height));
-        border: 2px solid green;
         display: grid;
         grid-template-columns: repeat(5, auto);
         grid-gap: 3rem;
+        padding: 2rem 0rem;
 
         overflow-y: scroll;
     }
