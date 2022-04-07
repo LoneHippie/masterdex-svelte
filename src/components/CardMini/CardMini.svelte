@@ -1,16 +1,20 @@
 <script lang="ts">
     import type { Pokemon } from "../../types";
+    import useStyles from "../../hooks/useStyles";
 
     export let pokemon: Pokemon;
+
+    const { backgroundColor, textColor } = useStyles(pokemon);
+
 </script>
 
-<div class="pokemon">
+<div class="pokemon" style="background-color: {backgroundColor}">
     <img 
         src={pokemon.sprite}
         alt="default portrait"
         class="pokemon__sprite"
     />
-    <span>{pokemon.name}</span>
+    <span style="color: {textColor}" >{pokemon.name}</span>
 </div>
 
 <style>
@@ -29,7 +33,7 @@
         height: 85%;
     }
     span {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-top: 1rem;
         text-align: center;
         height: 7.5%;
