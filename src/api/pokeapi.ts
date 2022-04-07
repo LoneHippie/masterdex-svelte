@@ -2,7 +2,6 @@ import type { Pokemon } from "../types";
 
 const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 
-
 const standardOnly = true;
 
 const filters = {
@@ -44,6 +43,11 @@ const queryBodies = {
             type: pokemon_v2_type {
                 name
                 id
+            }
+        }
+        specs: pokemon_v2_pokemonspecy {
+            color: pokemon_v2_pokemoncolor {
+                name
             }
         }
     `
