@@ -1,13 +1,5 @@
 import type { Pokemon, Type } from "@typedefs";
 
-const iconsByType = (pokemon: Pokemon): string[] => {
-    const types = pokemon.types.map((el: any) => el.type.name);
-    console.log({types})
-    return types.map((el: string) => {
-        return `https://raw.githubusercontent.com/LoneHippie/masterdex_v2/master/src/images/${el}.svg`
-    });
-}
-
 const textColorByType = (type: string): string => {
     if (type === 'grass' || type === 'water' || type === 'poison' || type === 'fighting' || type === 'dragon' || type === 'dark' || type === 'ghost' || type === 'psychic') {
         return 'rgba(220, 220, 220, 1)';
@@ -58,6 +50,21 @@ const backgroundColorByType = (type: string): string => {
             return 'magenta'; //something ovbious in case of an error
     }
 };
+
+interface TypeIcon {
+    icon: string;
+    background: string;
+}
+
+const iconsByType = (pokemon: Pokemon): Array<TypeIcon> => {
+    const types = pokemon.types.map((el: any) => el.type.name);
+    return types.map((el: string) => {
+        return {
+            icon: `https://raw.githubusercontent.com/LoneHippie/masterdex_v2/master/src/images/${el}.svg`,
+            background: backgroundColorByType(el)
+        }
+    });
+}
 
 const useStyles = (pokemon: any) => {
     const primaryType = pokemon.types[0].type.name;
