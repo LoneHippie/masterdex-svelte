@@ -1,4 +1,4 @@
-import useSearch from "../../../../api/useSearch";
+import { useSearch } from "@hooks";
 const { setPokemon, searchPokemon } = useSearch();
 
 const useSearchbar = () => {

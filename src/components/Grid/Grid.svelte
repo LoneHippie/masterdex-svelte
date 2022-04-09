@@ -1,7 +1,7 @@
 <script lang="ts">
     import CardMini from "../CardMini/CardMini.svelte";
     import type { Writable } from "svelte/store";
-    import type { Pokemon } from "../../types";
+    import type { Pokemon } from "@typedefs";
 
     export let pokemonList: Writable<Pokemon[]>;
 </script>

@@ -2,5 +2,13 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
 
   "include": ["src/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@store": ["src/store/index.ts"],
+      "@hooks": ["src/hooks/index.ts"],
+      "@typedefs": ["src/types/index.ts"]
+    }
+  }
 }

@@ -1,6 +1,14 @@
-import type { Pokemon, Type } from "../types";
+import type { Pokemon, Type } from "@typedefs";
 
-const textColorByType = (type: string) => {
+const iconsByType = (pokemon: Pokemon): string[] => {
+    const types = pokemon.types.map((el: any) => el.type.name);
+    console.log({types})
+    return types.map((el: string) => {
+        return `https://raw.githubusercontent.com/LoneHippie/masterdex_v2/master/src/images/${el}.svg`
+    });
+}
+
+const textColorByType = (type: string): string => {
     if (type === 'grass' || type === 'water' || type === 'poison' || type === 'fighting' || type === 'dragon' || type === 'dark' || type === 'ghost' || type === 'psychic') {
         return 'rgba(220, 220, 220, 1)';
     } else {
@@ -8,7 +16,7 @@ const textColorByType = (type: string) => {
     };
 };
 
-const backgroundColorByType = (type: string) => {
+const backgroundColorByType = (type: string): string => {
     switch(true) {
         case type === 'normal':
             return "rgba(169, 169, 169)";
@@ -56,10 +64,12 @@ const useStyles = (pokemon: any) => {
 
     const backgroundColor = backgroundColorByType(primaryType);
     const textColor = textColorByType(primaryType)
+    const typeIcons = iconsByType(pokemon);
 
     return {
         backgroundColor,
-        textColor
+        textColor,
+        typeIcons
     }
 }
 

@@ -1,4 +1,4 @@
-import type { Pokemon } from "../types";
+import type { Pokemon } from "@typedefs";
 
 const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 
