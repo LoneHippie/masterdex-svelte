@@ -29,13 +29,13 @@ interface Specs {
 
 export type Pokemon = {
     abilities: Array<Ability>;
-    height: Number;
+    height: number;
     color: Color;
-    id: Number;
+    id: number;
     name: string;
     stats: Array<Stat>;
     types: Array<Type>;
-    weight: Number;
+    weight: number;
     sprite: string | null;
     specs: Specs;
 }

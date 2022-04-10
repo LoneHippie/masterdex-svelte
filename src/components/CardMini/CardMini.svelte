@@ -3,20 +3,43 @@
     import { useStyles } from "@hooks";
     import CardMiniTop from "./components/CardMiniTop.svelte";
 
+    import { fade, fly } from "svelte/transition";
+
     export let pokemon: Pokemon;
 
-    const { backgroundColor, textColor } = useStyles(pokemon);
+    let styles = {
+        backgroundColor: "",
+        textColor: "",
+        typeIcons: []
+    }
+
+    $: {
+        const { backgroundColor, textColor, typeIcons } = useStyles(pokemon);
+        styles.backgroundColor = backgroundColor;
+        styles.textColor = textColor;
+        styles.typeIcons = typeIcons;
+    }
 
 </script>
 
-<div class="pokemon" style="background-color: {backgroundColor}">
-    <CardMiniTop pokemon={pokemon} />
+<div 
+    class="pokemon" 
+    style="background-color: {styles.backgroundColor}" 
+    in:fly={{x: 150, duration: 500}}
+    out:fly={{x: -150, duration: 500}}
+>
+    <CardMiniTop 
+        typeIcons={styles.typeIcons}
+        textColor={styles.textColor}
+        id={pokemon.id}
+    />
     <img 
         src={pokemon.sprite}
         alt="default portrait"
         class="pokemon__sprite"
+        transition:fade
     />
-    <span style="color: {textColor}" >{pokemon.name}</span>
+    <span style="color: {styles.textColor}" >{pokemon.name}</span>
 </div>
 
 <style>

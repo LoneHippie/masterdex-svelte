@@ -2,11 +2,17 @@
     import CardMini from "../CardMini/CardMini.svelte";
     import type { Writable } from "svelte/store";
     import type { Pokemon } from "@typedefs";
+    
+    import { onDestroy } from "svelte";
 
     export let pokemonList: Writable<Pokemon[]>;
+
+    onDestroy(() => console.log("BOOM"))
 </script>
 
-<div class="grid">
+<div 
+    class="grid"
+> 
     {#each $pokemonList as pokemon}
         <CardMini pokemon={pokemon} />
     {/each}

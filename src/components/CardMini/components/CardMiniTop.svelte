@@ -1,10 +1,9 @@
 <script lang="ts">
-    import type { Pokemon } from "@typedefs";
-    import { useStyles } from "@hooks";
+    
+    export let typeIcons: any;
+    export let textColor: string;
+    export let id: number;
 
-    export let pokemon: Pokemon;
-
-    const { typeIcons, textColor } = useStyles(pokemon);
 </script>
 
 <section class="pokemon__top">
@@ -22,7 +21,7 @@
         class="pokemon__top--id" 
         style="color: {textColor}"
     >
-        #{pokemon.id}
+        #{id}
     </div>
 </section>
 

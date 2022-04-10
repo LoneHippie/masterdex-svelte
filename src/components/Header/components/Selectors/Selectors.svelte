@@ -4,6 +4,7 @@
 
     let genSelect: number;
     let typeSelect: string;
+
 </script>
 
 <div class="buttons__container">
