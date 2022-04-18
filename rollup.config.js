@@ -69,6 +69,10 @@ export default {
 				replacement: path.resolve(__dirname, "src/store/index.ts"),
 			  },
 			  {
+				find: "@store/*",
+				replacement: path.resolve(__dirname, "src/store/*"),
+			  },
+			  {
 				find: "@typedefs",
 				replacement: path.resolve(__dirname, "src/types/index.ts")
 			  }

@@ -7,6 +7,7 @@
     "baseUrl": ".",
     "paths": {
       "@store": ["src/store/index.ts"],
+      "@store/*": ["src/store/*"],
       "@hooks": ["src/hooks/index.ts"],
       "@typedefs": ["src/types/index.ts"]
     }
