@@ -3,7 +3,7 @@
 	import NoGrid from "./components/NoGrid/NoGrid.svelte";
 	import Grid from "./components/Grid/Grid.svelte";
 
-	import { pokemonList, isLoading } from "@store";
+	import { pokemonList, isLoading } from "@store/store";
 </script>
 
 <Layout>
@@ -15,6 +15,3 @@
 		<NoGrid />
 	{/if}
 </Layout>
-
-<style>
-</style>

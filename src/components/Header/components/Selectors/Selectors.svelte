@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { useSearch } from "@hooks";
-    const { setPokemon } = useSearch();
+    import { setByGen, setByType } from "@store/actions/pokemonHandler";
 
     let genSelect: number;
     let typeSelect: string;
@@ -13,7 +12,7 @@
             class="custom-select"
             id="gen-select"
             bind:value={genSelect}
-            on:change={() => setPokemon.byGen(genSelect)}
+            on:change={() => setByGen(genSelect)}
         >
             <option value="default" disabled>GEN</option>
             <option value="1">Gen 1</option>
@@ -31,7 +30,7 @@
             class="custom-select" 
             id="type-select"
             bind:value={typeSelect}
-            on:change={() => setPokemon.byType(typeSelect)}
+            on:change={() => setByType(typeSelect)}
         >
             <option value="default" disabled>TYPE</option>
             <option value="fire">FIR</option>

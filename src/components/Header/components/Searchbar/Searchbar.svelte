@@ -1,27 +1,35 @@
 <script lang="ts">
+    import { setByName } from "@store/actions/pokemonHandler";
+    import { namesList } from "@store/store";
+    import { setNamesList } from "@store/actions/namesListHandler";
     import { onMount } from "svelte";
-    import useSearchbar from "./useSearchbar";
-
-    const { handleSubmit, setNamesList, handleSelectName, filterTerms } = useSearchbar();
 
     let searchText: string = "";
-    let allNames: any[] = [];
     let showSuggestions: boolean = false;
+    let searchSuggestions: string[];
 
-    onMount(async() => {
-        const res = await setNamesList();
-        allNames = res.map(el => el.name);
+    onMount(() => {
+        if ($namesList.length) return;
+        setNamesList()
     })
 
-    $: searchSuggestions = searchText.length > 2 ? (
-       filterTerms(allNames, searchText)
-    ) : [];
-    
+    const filterTerms = (allNames: string[], search: string) => {
+        return allNames.filter(name => name.includes(search.trim().toLowerCase()))
+    }
+    const handleSelectName = (e: any) => {
+        setByName(e.target.innerText)
+    }
+
+    $: {
+        searchSuggestions = searchText.length > 2 && $namesList.length ? (
+            filterTerms($namesList, searchText)
+        ) : [];
+    }
 </script>
 
 <form
     class="searchbar__container"
-    on:submit|preventDefault={() => handleSubmit(searchText)}
+    on:submit|preventDefault={() => setByName(searchText)}
 >
     <input 
         class="searchbar" 

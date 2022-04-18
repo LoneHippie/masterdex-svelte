@@ -1,4 +1,4 @@
-import { pokemonList, isLoading } from "@store";
+import { pokemonList, isLoading } from "@store/store";
 import { genQuery, typeQuery, searchQuery, namesQuery} from "../api/pokeapi";
 import type { Pokemon } from "@typedefs";
 
