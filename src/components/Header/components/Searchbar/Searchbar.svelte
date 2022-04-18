@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { setByName } from "@store/actions/pokemonHandler";
-    import { namesList } from "@store/store";
+    import { setByName } from "@store/actions/pokemonListHandler";
     import { setNamesList } from "@store/actions/namesListHandler";
+    import { namesList } from "@store/store";
     import { onMount } from "svelte";
 
     let searchText: string = "";
@@ -70,10 +70,9 @@
         font-size: 2rem;
         padding: 0.5rem 0.75rem;
         border-radius: 8px;
+        z-index: 500;
 
         transition: all 300ms;
-
-        z-index: 100;
     }
 
     .searchbar:hover,
@@ -98,8 +97,6 @@
         border-radius: 8px 8px 8px 8px;
         list-style: none;
         overflow-y: scroll;
-
-        z-index: 50;
     }
 
     .suggestion {

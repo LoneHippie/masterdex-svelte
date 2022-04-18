@@ -21,5 +21,7 @@
         flex-direction: row;
         align-items: center;
         padding: 2rem;
+
+        z-index: 1000;
     }
 </style>

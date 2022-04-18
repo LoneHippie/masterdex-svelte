@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { setByGen, setByType } from "@store/actions/pokemonHandler";
+    import { setByGen, setByType } from "@store/actions/pokemonListHandler";
 
     let genSelect: number;
     let typeSelect: string;

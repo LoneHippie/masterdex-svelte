@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Pokemon } from "@typedefs";
+    import { setSelectedPokemon } from "@store/actions/pokemonHandler";
     import { useStyles } from "@hooks";
     import CardMiniTop from "./components/CardMiniTop.svelte";
 
@@ -27,6 +28,7 @@
     style="background-color: {styles.backgroundColor}" 
     in:fly={{x: 150, duration: 500}}
     out:fly={{x: -150, duration: 500}}
+    on:click={() => setSelectedPokemon(pokemon)}
 >
     <CardMiniTop 
         typeIcons={styles.typeIcons}

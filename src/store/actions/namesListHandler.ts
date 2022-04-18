@@ -1,4 +1,4 @@
-import { searchPokemon } from "./pokemonHandler";
+import { searchPokemon } from "./pokemonListHandler";
 import { namesList } from "@store/store";
 import type { Pokemon } from "@typedefs";
 
