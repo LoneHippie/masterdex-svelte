@@ -10,7 +10,7 @@
 <Layout>
 	{#if $pokemonList.length && !$isLoading}
 		<Grid 
-			pokemonList={pokemonList} 
+			pokemonList={$pokemonList} 
 		/>
 	{:else}
 		<NoGrid />

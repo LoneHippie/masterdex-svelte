@@ -1,13 +1,12 @@
 <script lang="ts">
     import CardMini from "../CardMini/CardMini.svelte";
-    import type { Writable } from "svelte/store";
     import type { Pokemon } from "@typedefs";
 
-    export let pokemonList: Writable<Pokemon[]>;
+    export let pokemonList: Pokemon[];
 </script>
 
 <div class="grid"> 
-    {#each $pokemonList as pokemon}
+    {#each pokemonList as pokemon}
         <CardMini pokemon={pokemon} />
     {/each}
 </div>
