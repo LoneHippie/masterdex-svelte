@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Pokemon } from "@typedefs";
     import { useStyles } from "@hooks";
+    import { fly } from "svelte/transition";
 
     export let pokemon: Pokemon;
     let styles = {
@@ -17,17 +18,22 @@
     }
 </script>
 
-<article class="card" style="background-color: {styles.backgroundColor}">
+<article 
+    class="card" 
+    style="background-color: {styles.backgroundColor}"
+    in:fly={{y: 800, duration: 300}}
+>
     <div style="color: {styles.textColor}">{pokemon.name}</div>
 </article>
 
 <style>
     .card {
-        position: absolute;
-        bottom: 0;
+        position: fixed;
+        top: 0;
         left: 0;
-        height: calc(100vh - var(--header-height));
         width: 100%;
+        height: 100vh;
+        padding-top: var(--header-height);
 
         z-index: 500;
     }

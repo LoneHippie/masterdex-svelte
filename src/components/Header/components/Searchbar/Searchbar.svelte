@@ -58,7 +58,7 @@
 <style>
     .searchbar__container {
         position: relative;
-        width: 65%;
+        width: 60%;
         display: flex;
         flex-direction: column;
         align-items: center;

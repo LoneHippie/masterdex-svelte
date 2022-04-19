@@ -60,7 +60,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        width: 35%;
+        width: 25%;
     }
 
     .button_group {

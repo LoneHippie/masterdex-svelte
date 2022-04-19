@@ -11,18 +11,21 @@
 
 <style>
     .nogrid {
-        position: relative;
-        height: calc(100vh - var(--header-height));
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .container {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         padding: 3rem;
         border-radius: 10px;
         box-shadow: 2px 2px 17px 2px var(--color-black);
+        min-height: 30rem;
     }
 
     h1 {

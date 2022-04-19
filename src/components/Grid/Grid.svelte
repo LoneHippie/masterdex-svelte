@@ -13,7 +13,8 @@
 
 <style>
     .grid {
-        height: calc(100vh - var(--header-height));
+        width: 100%;
+        height: 100%;
         display: grid;
         grid-template-columns: repeat(5, auto);
         grid-gap: 3rem;

@@ -12,9 +12,10 @@
 <style>
     main {
         background-color: var(--color-pokedex);
-        padding: 0 10rem;
+        padding: 0 8rem;
     }
     .content {
-        margin-top: var(--header-height);
+        padding-top: var(--header-height);
+        height: 100vh;
     }
 </style>
