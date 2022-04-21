@@ -27,7 +27,7 @@
     class="pokemon" 
     style="background: {styles.backgroundColor}" 
     in:fly={{x: 150, duration: 500}}
-    out:fly={{x: -150, duration: 500}}
+    out:fly={{x: -150, duration: 300, delay: 200}}
     on:click={() => setSelectedPokemon(pokemon)}
 >
     <CardMiniTop 

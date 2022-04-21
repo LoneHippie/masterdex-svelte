@@ -41,6 +41,7 @@
         }, 200)}
         on:focus={() => showSuggestions = true}
     />
+    <span>Masterdex Svelte</span>
     {#if searchSuggestions.length && showSuggestions}
         <ul class="suggestions">
             {#each searchSuggestions as searchSuggestion}
@@ -96,6 +97,22 @@
             
             box-shadow: 0px 0px 10px 5px $color-focus;
             cursor: pointer;
+        }
+    }
+
+    span {
+        text-align: left;
+        align-self: flex-start;
+        margin-left: 0.5rem;
+        margin-top: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: $font-pk;
+        color: $color-text;
+
+        @include respond(landscapePhone) {
+            margin-top: 1rem;
+            font-size: 1.9rem;
         }
     }
 

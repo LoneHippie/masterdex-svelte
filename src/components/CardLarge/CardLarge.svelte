@@ -24,6 +24,7 @@
     class="card" 
     style="background: {styles.backgroundGradient}"
     in:fly={{y: 800, duration: 300}}
+    out:fly={{y: 800, duration: 200}}
 >
     <div style="color: {styles.textColor}">{pokemon.name}</div>
 </article>
