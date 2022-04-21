@@ -20,6 +20,7 @@ export const searchPokemon = {
 const runSearch = async(action: queryAction, param: any): Promise<Pokemon[]> => {
     isLoading.set(true);
     clearSelectedPokemon();
+    pokemonList.set([]);
     let res: any;
     switch(action) {
         case queryAction.GEN:
@@ -37,11 +38,10 @@ const runSearch = async(action: queryAction, param: any): Promise<Pokemon[]> => 
     const list: Pokemon[] = res.map((el: any) => {
         return {...el, sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${el.id}.png`}
     })
-    pokemonList.set([]);
-    pokemonList.update(state => {
-        return state = list;
-    })
-    isLoading.set(false);
+    setTimeout(() => { //gives enough time to clear the DOM, find better fix later
+        pokemonList.set(list)
+        isLoading.set(false);
+    }, 500);
 }
 
 const setByName = async(name: string) => runSearch(queryAction.NAME, name);
