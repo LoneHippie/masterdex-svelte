@@ -41,4 +41,8 @@
     main {
         background-color: $color-pokedex;
     }
+    .content {
+        padding-top: $header-height;
+        height: 100vh;
+    }
 </style>
