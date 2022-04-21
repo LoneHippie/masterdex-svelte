@@ -35,7 +35,13 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 7.5%;
+        height: 10%;
+        @include respond(largePhone) {
+            height: 8.5%;
+        }
+        @include respond(landscapePhone) {
+            height: 7.5%;
+        }
         &__icons {
             display: flex;
             flex-direction: row;

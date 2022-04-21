@@ -90,8 +90,7 @@
         background-color: $color-white;
         color: $color-pokedex-2;
         border-radius: 8px;
-        border-right: 2.5px solid $color-text;
-        border-bottom: 2.5px solid $color-text;
+        border: none;
 
         transition: all 300ms; 
 
@@ -99,6 +98,9 @@
             padding: 0.75rem 1.5rem;
         }
         @include respond(tablet) {
+            padding: 0.75rem 2rem;
+        }
+        @include respond(laptop) {
             padding: 0.75rem 2.5rem;
         }
         

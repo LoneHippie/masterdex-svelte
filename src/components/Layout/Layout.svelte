@@ -36,7 +36,7 @@
     }
     :global(body) {
         box-sizing: border-box;
-        background-color: $color-pokedex-2;
+        background-color: $color-pokedex;
     }
     main {
         background-color: $color-pokedex;

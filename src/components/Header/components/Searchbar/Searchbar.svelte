@@ -73,7 +73,7 @@
             width: 55%;
         }
         @include respond(landscapePhone) {
-            width: 60%;
+            width: 65%;
         }
 
         @include respond(tablet) {
@@ -87,6 +87,7 @@
         font-size: 2rem;
         padding: 0.5rem 0.75rem;
         border-radius: 8px;
+        border: none;
         z-index: 500;
 
         transition: all 300ms;
@@ -103,7 +104,7 @@
     span {
         text-align: left;
         align-self: flex-start;
-        margin-left: 0.5rem;
+        margin-left: 0.25rem;
         margin-top: 0.75rem;
         font-size: 1.5rem;
         font-weight: 600;
@@ -121,7 +122,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        padding-top: 5rem;
+        padding-top: 4rem;
         background: $color-white;
         min-height: 7rem;
         max-height: 21rem;
