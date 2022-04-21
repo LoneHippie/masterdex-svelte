@@ -57,12 +57,23 @@
 
 <style lang="scss">
     @import "../../../../styles/variables";
+    @import "../../../../styles/mediaqueries";
 
     .buttons__container {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        width: 25%;
+        width: 40%;
+
+        @include respond(largePhone) {
+            width: 33%;
+        }
+        @include respond(landscapePhone) {
+            width: 27.5%;
+        }
+        @include respond(tablet) {
+            width: 25%;
+        }
     }
 
     .button_group {
@@ -72,8 +83,9 @@
 
     .custom-select {
         appearance: none;
-        padding: 0.75rem 2.5rem;
-        font-size: 2rem;
+        padding: 0.75rem 1rem;
+        font-size: 1.75rem;
+        font-family: $font-roboto;
         font-weight: 500;
         background-color: $color-white;
         color: $color-pokedex-2;
@@ -82,6 +94,13 @@
         border-bottom: 2.5px solid $color-text;
 
         transition: all 300ms; 
+
+        @include respond(landscapePhone) {
+            padding: 0.75rem 1.5rem;
+        }
+        @include respond(tablet) {
+            padding: 0.75rem 2.5rem;
+        }
         
         &:hover,
         &:active {

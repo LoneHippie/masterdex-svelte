@@ -26,6 +26,9 @@
 </section>
 
 <style lang="scss">
+    @import "../../../styles/variables";
+    @import "../../../styles/mediaqueries";
+    
     .pokemon__top {
         display: flex;
         flex-direction: row;
@@ -40,17 +43,31 @@
             justify-content: space-between;
 
             &--icon {
-                height: 2.75rem;
-                widows: 2.75rem;
+                height: 2rem;
+                width: 2rem;
                 border-radius: 100%;
                 padding: 0.25rem;
                 &:first-child {
-                    margin-right: 0.35rem;
+                    margin-right: 0.22rem;
+                }
+
+                @include respond(landscapePhone) {
+                    height: 2.75rem;
+                    width: 2.75rem;
+
+                    &:first-child {
+                        margin-right: 0.35rem;
+                    }
                 }
             }
         }
         &--id {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
+            font-family: $font-pk;
+
+            @include respond(landscapePhone) {
+                font-size: 2.5rem;
+            }
         }
     }
 </style>

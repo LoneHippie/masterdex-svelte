@@ -13,6 +13,7 @@
 
 <style lang="scss">
     @import "../../styles/variables";
+    @import "../../styles/mediaqueries";
 
     header {
         height: calc($header-height + 0.25rem);
@@ -25,7 +26,11 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 2rem;
+        padding: 2rem 0.75rem;
+
+        @include respond(tablet) {
+            padding: 2rem;
+        }
 
         z-index: 1000;
     }
@@ -50,7 +55,5 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
-        margin-top: -2rem;
     }
 </style>

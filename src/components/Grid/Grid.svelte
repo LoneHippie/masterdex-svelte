@@ -11,15 +11,27 @@
     {/each}
 </div>
 
-<style>
+<style lang="scss">
+    @import "../../styles/mediaqueries";
     .grid {
         width: 100%;
         height: 100%;
         display: grid;
-        grid-template-columns: repeat(5, auto);
-        grid-gap: 3rem;
-        padding: 2rem 0rem;
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 0.3rem;
+        justify-items: center;
 
         overflow-y: scroll;
+
+        @include respond(landscapePhone) {
+            grid-gap: 1.5rem;
+        }
+
+        @include respond(tablet) {
+            grid-template-columns: repeat(4, auto);
+        }  
+        @include respond(desktop) {
+            grid-template-columns: repeat(5, auto);
+        }
     }
 </style>

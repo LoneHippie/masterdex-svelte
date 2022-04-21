@@ -47,25 +47,44 @@
 <style lang="scss">
 
     @import "../../styles/variables";
+    @import "../../styles/mediaqueries";
     .pokemon {
         position: relative;
-        height: 24rem;
-        width: 16rem;
         display: flex;
         flex-direction: column;
         border-radius: 6px;
         box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.3);
-        padding: 1.5rem;
+        padding: 0.2rem;
 
+        width: 11.25rem;
+        height: 18rem;
+
+        cursor: pointer;
+
+        @include respond(largePhone) {
+            padding: 0.5rem;
+            width: 13rem;
+            height: 20rem;
+        }
+        @include respond(landscapePhone) {
+            height: 24rem;
+            width: 16.5rem;
+            padding: 1.5rem;
+        }
         &__sprite {
             width: 85%;
-            height: 85%;
+            height: 80%;
+            image-rendering: pixelated;
+
+            @include respond(landscapePhone) {
+                height: 85%;
+            }
         }
     }
     span {
         font-size: 1.8rem;
-        margin-top: 1rem;
         text-align: center;
         height: 7.5%;
+        font-family: $font-pk;
     }
 </style>

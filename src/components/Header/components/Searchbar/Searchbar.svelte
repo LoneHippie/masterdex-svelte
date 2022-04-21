@@ -33,6 +33,7 @@
 >
     <input 
         class="searchbar" 
+        placeholder="Pokemon Search"
         type="text" 
         bind:value={searchText} 
         on:blur={() => setTimeout(() => {
@@ -57,18 +58,31 @@
 
 <style lang="scss">
     @import "../../../../styles/variables";
+    @import "../../../../styles/mediaqueries";
 
     .searchbar__container {
         position: relative;
-        width: 60%;
+        width: 55%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @include respond(largePhone) {
+            width: 55%;
+        }
+        @include respond(landscapePhone) {
+            width: 60%;
+        }
+
+        @include respond(tablet) {
+            width: 68%;
+        }
     }
 
     .searchbar {
         width: 100%;
+        font-family: $font-roboto;
         font-size: 2rem;
         padding: 0.5rem 0.75rem;
         border-radius: 8px;
@@ -79,8 +93,7 @@
         &:hover,
         &:active {
             outline: none;
-            border-right: 2.5px solid $color-focus;
-            border-bottom: 2.5px solid $color-focus;
+            
             box-shadow: 0px 0px 10px 5px $color-focus;
             cursor: pointer;
         }
@@ -91,7 +104,6 @@
         top: 0;
         left: 0;
         width: 100%;
-        padding: 1rem;
         padding-top: 5rem;
         background: $color-white;
         min-height: 7rem;
@@ -102,11 +114,15 @@
     }
 
     .suggestion {
+        padding: 0.5rem 1rem;
         color: $color-focus;
-        font-size: 2.2rem;
+        font-size: 2rem;
         width: 100%;
-
-        &:hover {
+        font-family: $font-roboto;
+        &:hover,
+        &:focus {
+            background: $color-focus;
+            color: $color-white;
             cursor: pointer;
         }
     }

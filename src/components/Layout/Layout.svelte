@@ -11,10 +11,39 @@
 
 <style lang="scss">
     @import "../../styles/variables";
+    @import "../../styles/mediaqueries";
+    *, *::after, *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+    }
+    :global(html) {
+        font-size: 62.5%;
 
+        @include respond(tablet) {
+            font-size: 70%;
+        }
+        @include respond(laptop) {
+            font-size: 80%;
+        }
+        @include respond(desktop) {
+            font-size: 85%;
+        }
+
+        scroll-behavior: smooth;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+    :global(body) {
+        box-sizing: border-box;
+        background-color: $color-pokedex-2;
+    }
     main {
         background-color: $color-pokedex;
-        padding: 0 8rem;
+        padding: 1.5rem 0.5rem;
+        @include respond(laptop) {
+            padding: 2rem 3.5rem;
+        }
     }
     .content {
         padding-top: $header-height;
