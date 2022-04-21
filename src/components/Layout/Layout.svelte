@@ -40,13 +40,5 @@
     }
     main {
         background-color: $color-pokedex;
-        padding: 1.5rem 0.5rem;
-        @include respond(laptop) {
-            padding: 2rem 3.5rem;
-        }
-    }
-    .content {
-        padding-top: $header-height;
-        height: 100vh;
     }
 </style>

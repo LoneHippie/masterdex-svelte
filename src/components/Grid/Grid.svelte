@@ -21,6 +21,8 @@
         grid-gap: 0.3rem;
         justify-items: center;
 
+        padding: 1.5rem 0.5rem;
+
         overflow-y: scroll;
 
         @include respond(landscapePhone) {
@@ -30,6 +32,9 @@
         @include respond(tablet) {
             grid-template-columns: repeat(4, auto);
         }  
+        @include respond(laptop) {
+            padding: 2rem 3.5rem;
+        }
         @include respond(desktop) {
             grid-template-columns: repeat(5, auto);
         }
