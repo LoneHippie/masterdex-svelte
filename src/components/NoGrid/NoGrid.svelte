@@ -9,7 +9,9 @@
     </div>
 </section>
 
-<style>
+<style lang="scss">
+    @import "../../styles/variables";
+
     .nogrid {
         position: fixed;
         top: 0;
@@ -24,20 +26,20 @@
     .container {
         padding: 3rem;
         border-radius: 10px;
-        box-shadow: 2px 2px 17px 2px var(--color-black);
+        box-shadow: 2px 2px 17px 2px $color-black;
         min-height: 30rem;
     }
 
     h1 {
         font-size: 5rem;
         text-align: center;
-        color: var(--color-white);
+        color: $color-white;
 
         margin-bottom: 3rem;
     }
 
     p {
         font-size: 2.2rem;
-        color: var(--color-white);
+        color: $color-white;
     }
 </style>

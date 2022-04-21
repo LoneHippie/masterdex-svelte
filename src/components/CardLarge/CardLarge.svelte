@@ -26,14 +26,15 @@
     <div style="color: {styles.textColor}">{pokemon.name}</div>
 </article>
 
-<style>
+<style lang="scss">
+    @import "../../styles/variables";
     .card {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        padding-top: var(--header-height);
+        padding-top: $header-height;
 
         z-index: 500;
     }

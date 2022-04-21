@@ -55,7 +55,9 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
+    @import "../../../../styles/variables";
+
     .buttons__container {
         display: flex;
         flex-direction: row;
@@ -73,21 +75,21 @@
         padding: 0.75rem 2.5rem;
         font-size: 2rem;
         font-weight: 500;
-        background-color: var(--color-white);
-        color: var(--color-pokedex-2);
+        background-color: $color-white;
+        color: $color-pokedex-2;
         border-radius: 8px;
-        border-right: 2.5px solid var(--color-text);
-        border-bottom: 2.5px solid var(--color-text);
+        border-right: 2.5px solid $color-text;
+        border-bottom: 2.5px solid $color-text;
 
-        transition: all 300ms;   
-    }
-
-    .custom-select:hover,
-    .custom-select:active {
-        outline: none;
-        border-right: 2.5px solid var(--color-focus);
-        border-bottom: 2.5px solid var(--color-focus);
-        box-shadow: 0px 0px 10px 5px var(--color-focus);
-        cursor: pointer;
+        transition: all 300ms; 
+        
+        &:hover,
+        &:active {
+            outline: none;
+            border-right: 2.5px solid $color-focus;
+            border-bottom: 2.5px solid $color-focus;
+            box-shadow: 0px 0px 10px 5px $color-focus;
+            cursor: pointer;
+        }
     }
 </style>

@@ -25,7 +25,7 @@
     </div>
 </section>
 
-<style>
+<style lang="scss">
     .pokemon__top {
         display: flex;
         flex-direction: row;
@@ -33,23 +33,24 @@
         align-items: center;
         width: 100%;
         height: 7.5%;
-    }
-    .pokemon__top__icons {
-        display: flex;
-        flex-direction: row;
-        width: 40%;
-        justify-content: space-between;
-    }
-    .pokemon__top__icons--icon {
-        height: 2.75rem;
-        widows: 2.75rem;
-        border-radius: 100%;
-        padding: 0.25rem;
-    }
-    .pokemon__top__icons--icon:first-child {
-        margin-right: 0.35rem;
-    }
-    .pokemon__top--id {
-        font-size: 2.5rem;
+        &__icons {
+            display: flex;
+            flex-direction: row;
+            width: 40%;
+            justify-content: space-between;
+
+            &--icon {
+                height: 2.75rem;
+                widows: 2.75rem;
+                border-radius: 100%;
+                padding: 0.25rem;
+                &:first-child {
+                    margin-right: 0.35rem;
+                }
+            }
+        }
+        &--id {
+            font-size: 2.5rem;
+        }
     }
 </style>

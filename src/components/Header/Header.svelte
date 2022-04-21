@@ -11,11 +11,13 @@
     </nav>
 </header>
 
-<style>
+<style lang="scss">
+    @import "../../styles/variables";
+
     header {
-        height: calc(var(--header-height) + 0.25rem);
-        background: var(--color-text);
-        color: var(--color-white);
+        height: calc($header-height + 0.25rem);
+        background: $color-text;
+        color: $color-white;
         position: fixed;
         width: 100%;
         top: 0;
@@ -33,12 +35,12 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: var(--header-height);
+        height: $header-height;
         padding: 2rem;
         display: flex;
         justify-content: space-between;
-        background-color: var(--color-pokedex-2);
-        color: var(--color-white);
+        background-color: $color-pokedex-2;
+        color: $color-white;
 
         z-index: -1;
     }

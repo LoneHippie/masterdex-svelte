@@ -44,7 +44,9 @@
     <span style="color: {styles.textColor}" >{pokemon.name}</span>
 </div>
 
-<style>
+<style lang="scss">
+
+    @import "../../styles/variables";
     .pokemon {
         position: relative;
         height: 24rem;
@@ -54,10 +56,11 @@
         border-radius: 6px;
         box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.3);
         padding: 1.5rem;
-    }
-    .pokemon__sprite {
-        width: 85%;
-        height: 85%;
+
+        &__sprite {
+            width: 85%;
+            height: 85%;
+        }
     }
     span {
         font-size: 1.8rem;

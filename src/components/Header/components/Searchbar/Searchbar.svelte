@@ -55,7 +55,9 @@
 </form>
 
 
-<style>
+<style lang="scss">
+    @import "../../../../styles/variables";
+
     .searchbar__container {
         position: relative;
         width: 60%;
@@ -73,15 +75,15 @@
         z-index: 500;
 
         transition: all 300ms;
-    }
 
-    .searchbar:hover,
-    .searchbar:active {
-        outline: none;
-        border-right: 2.5px solid var(--color-focus);
-        border-bottom: 2.5px solid var(--color-focus);
-        box-shadow: 0px 0px 10px 5px var(--color-focus);
-        cursor: pointer;
+        &:hover,
+        &:active {
+            outline: none;
+            border-right: 2.5px solid $color-focus;
+            border-bottom: 2.5px solid $color-focus;
+            box-shadow: 0px 0px 10px 5px $color-focus;
+            cursor: pointer;
+        }
     }
 
     .suggestions {
@@ -91,7 +93,7 @@
         width: 100%;
         padding: 1rem;
         padding-top: 5rem;
-        background: var(--color-white);
+        background: $color-white;
         min-height: 7rem;
         max-height: 21rem;
         border-radius: 8px 8px 8px 8px;
@@ -100,12 +102,12 @@
     }
 
     .suggestion {
-        color: var(--color-black);
+        color: $color-focus;
         font-size: 2.2rem;
         width: 100%;
-    }
 
-    .suggestion:hover {
-        cursor: pointer;
+        &:hover {
+            cursor: pointer;
+        }
     }
 </style>

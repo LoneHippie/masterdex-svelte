@@ -9,13 +9,15 @@
     </section>
 </main>
 
-<style>
+<style lang="scss">
+    @import "../../styles/variables";
+
     main {
-        background-color: var(--color-pokedex);
+        background-color: $color-pokedex;
         padding: 0 8rem;
     }
     .content {
-        padding-top: var(--header-height);
+        padding-top: $header-height;
         height: 100vh;
     }
 </style>
