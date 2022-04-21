@@ -7,20 +7,22 @@
     let styles = {
         backgroundColor: "",
         textColor: "",
-        typeIcons: []
+        typeIcons: [],
+        backgroundGradient: "",
     }
 
     $: {
-        const { backgroundColor, textColor, typeIcons } = useStyles(pokemon);
+        const { backgroundColor, textColor, typeIcons, backgroundGradient } = useStyles(pokemon);
         styles.backgroundColor = backgroundColor;
         styles.textColor = textColor;
         styles.typeIcons = typeIcons;
+        styles.backgroundGradient = backgroundGradient;
     }
 </script>
 
 <article 
     class="card" 
-    style="background-color: {styles.backgroundColor}"
+    style="background: {styles.backgroundGradient}"
     in:fly={{y: 800, duration: 300}}
 >
     <div style="color: {styles.textColor}">{pokemon.name}</div>

@@ -1,54 +1,66 @@
-import type { Pokemon, Type } from "@typedefs";
+import type { Pokemon } from "@typedefs";
 
 const textColorByType = (type: string): string => {
     if (type === 'grass' || type === 'water' || type === 'poison' || type === 'fighting' || type === 'dragon' || type === 'dark' || type === 'ghost' || type === 'psychic') {
-        return 'rgba(220, 220, 220, 1)';
+        return '#dcdcdc';
     } else {
-        return 'rgba(47, 79, 79, 1)';
+        return '#2f4f4f';
     };
 };
+
+const contrastColorByTextColor = (textColor: string): string => {
+    if (textColor === "#dcdcdc") {
+        return "#2f4f4f"
+    } else {
+        return "#dcdcdc"
+    }
+}
 
 const backgroundColorByType = (type: string): string => {
     switch(true) {
         case type === 'normal':
-            return "rgba(169, 169, 169)";
+            return "#a9a9a9";
         case type === 'fire':
-            return "rgba(238, 129, 48)";
+            return "#ee8130";
         case type === 'water':
-            return "rgba(99, 144, 240)";
+            return "#6390f0";
         case type === 'electric':
-            return "rgba(247, 208, 44)";
+            return "#f7d02c";
         case type === 'grass':
-            return "rgba(122, 199, 76)";
+            return "#7ac74c";
         case type === 'ice':
-            return "rgba(150, 217, 214)";
+            return "#96d9d6";
         case type === 'fighting':
-            return "rgba(194, 46, 40)";
+            return "#c22e28";
         case type === 'poison':
-            return "rgba(163, 62, 161)";
+            return "#a33ea1";
         case type === 'ground':
-            return "rgba(226, 191, 101)";
+            return "#e2bf65";
         case type === 'flying':
-            return "rgba(169, 143, 243)";
+            return "#a98ff3";
         case type === 'psychic':
-            return "rgba(249, 85, 135)";
+            return "#f95587";
         case type === 'bug':
-            return "rgba(166, 185, 26)";
+            return "#a6b91a";
         case type === 'rock':
-            return "rgba(182, 161, 54)";
+            return "#b6a136";
         case type === 'ghost':
-            return "rgba(115, 87, 151)";
+            return "#735797";
         case type === 'dragon':
-            return  "rgba(111, 53, 252)";
+            return  "#6f35fc";
         case type === 'dark':
-            return "rgba(112, 87, 70)";
+            return "#705746";
         case type === 'steel':
-            return "rgba(183, 183, 206)";
+            return "#b7b7ce";
         case type === 'fairy':
-            return "rgba(214, 133, 173)";
+            return "#d685ad";
         default:
             return 'magenta'; //something ovbious in case of an error
     }
+};
+
+const doubleGradientByType = (typeColor: string, contrastColor: string): string => {
+    return `linear-gradient(122deg, ${contrastColor} 0%, ${contrastColor} 36.75%, transparent 37%), linear-gradient(${typeColor}, ${typeColor})`;
 };
 
 interface TypeIcon {
@@ -69,14 +81,18 @@ const iconsByType = (pokemon: Pokemon): Array<TypeIcon> => {
 const useStyles = (pokemon: any) => {
     const primaryType = pokemon.types[0].type.name;
 
-    const backgroundColor = backgroundColorByType(primaryType);
-    const textColor = textColorByType(primaryType)
     const typeIcons = iconsByType(pokemon);
+    const backgroundColor = backgroundColorByType(primaryType);
+    const textColor = textColorByType(primaryType);
+    const contrastColor = contrastColorByTextColor(textColor);
+    const backgroundGradient = doubleGradientByType(backgroundColor, textColor);
 
     return {
         backgroundColor,
         textColor,
-        typeIcons
+        contrastColor,
+        typeIcons,
+        backgroundGradient
     }
 }
 

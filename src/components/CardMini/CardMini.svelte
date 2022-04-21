@@ -11,21 +11,21 @@
     let styles = {
         backgroundColor: "",
         textColor: "",
-        typeIcons: []
+        typeIcons: [],
     }
 
     $: {
         const { backgroundColor, textColor, typeIcons } = useStyles(pokemon);
         styles.backgroundColor = backgroundColor;
         styles.textColor = textColor;
-        styles.typeIcons = typeIcons;
+        styles.typeIcons = typeIcons
     }
 
 </script>
 
 <div 
     class="pokemon" 
-    style="background-color: {styles.backgroundColor}" 
+    style="background: {styles.backgroundColor}" 
     in:fly={{x: 150, duration: 500}}
     out:fly={{x: -150, duration: 500}}
     on:click={() => setSelectedPokemon(pokemon)}
