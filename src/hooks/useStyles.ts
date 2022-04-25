@@ -78,7 +78,7 @@ const iconsByType = (pokemon: Pokemon): Array<TypeIcon> => {
     });
 }
 
-const useStyles = (pokemon: any) => {
+const useStyles = (pokemon: Pokemon) => {
     const primaryType = pokemon.types[0].type.name;
 
     const typeIcons = iconsByType(pokemon);
@@ -92,7 +92,10 @@ const useStyles = (pokemon: any) => {
         textColor,
         contrastColor,
         typeIcons,
-        backgroundGradient
+        backgroundGradient,
+        textColorByType,
+        backgroundColorByType,
+        contrastColorByTextColor
     }
 }
 
