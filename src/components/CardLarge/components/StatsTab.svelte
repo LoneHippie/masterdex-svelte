@@ -8,6 +8,8 @@
     const statNames = ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed", "Total"];
     const statMaxes = [255, 165, 230, 154, 230, 160, 720];
     const stats = pokemon.stats.map(el => el.baseStat);
+    const statTotal = stats.reduce((acc, el) => acc + el);
+    stats.push(statTotal);
     const pokemonStats = stats.map((el, index) => {
         return {
             stat: el,
@@ -28,10 +30,15 @@
                         background: {backgroundColor};
                     "
                 >
-                    <strong class="stat__content--value">{pkStat.stat}</strong>
+                    <strong 
+                        class="stat__content--value"
+                        style="color: {textColor}"
+                    >
+                        {pkStat.stat}
+                    </strong>
                 </div>
             </div>
-            <div class="stat__label" for={`stat-bar-${pkStat.name}-${pokemon.id}`}>
+            <div class="stat__label" for={`stat-bar-${pkStat.name}-${pokemon.id}`} style="color: {textColor}">
                 {pkStat.name}
             </div>
         </div>

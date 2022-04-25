@@ -44,7 +44,11 @@
     >X</button>
 
     <section class="card__module-container">
-        <InfoTab pokemon={pokemon} />
+        <InfoTab 
+            pokemon={pokemon} 
+            textColor={styles.contrastColor}
+            bgColor={styles.textColor}
+        />
         <SpriteTab pokemon={pokemon} />
 
         <section class="card__module-container--details">
