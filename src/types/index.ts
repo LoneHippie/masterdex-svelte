@@ -3,8 +3,10 @@ interface Effect {
 }
 
 interface Ability {
-    name: string;
-    effects: Array<Effect>
+    ability: {
+        name: string;
+        effects: Array<Effect>
+    }
 }
 
 interface Stat {
@@ -13,8 +15,10 @@ interface Stat {
 }
 
 export interface Type {
-    name: string;
-    id: number;
+    type: {
+        name: string;
+        id: number;
+    }
 }
 
 interface Color {
