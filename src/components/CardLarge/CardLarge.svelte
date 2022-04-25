@@ -1,22 +1,34 @@
 <script lang="ts">
     import type { Pokemon } from "@typedefs";
+    import { clearSelectedPokemon } from "@store/actions/pokemonHandler";
     import { useStyles } from "@hooks";
     import { fly } from "svelte/transition";
 
+    import SpriteTab from "./components/SpriteTab.svelte";
+    import InfoTab from "./components/InfoTab.svelte";
+    import DetailsToggle from "./components/DetailsToggle.svelte";
+    import StatsTab from "./components/StatsTab.svelte";
+
     export let pokemon: Pokemon;
+
+    let showMovesTab: boolean = false;
+    const toggleShowMovesTab = () => showMovesTab = !showMovesTab;
+
     let styles = {
         backgroundColor: "",
         textColor: "",
         typeIcons: [],
         backgroundGradient: "",
+        contrastColor: ""
     }
 
     $: {
-        const { backgroundColor, textColor, typeIcons, backgroundGradient } = useStyles(pokemon);
+        const { backgroundColor, textColor, typeIcons, backgroundGradient, contrastColor } = useStyles(pokemon);
         styles.backgroundColor = backgroundColor;
         styles.textColor = textColor;
         styles.typeIcons = typeIcons;
         styles.backgroundGradient = backgroundGradient;
+        styles.contrastColor = contrastColor;
     }
 </script>
 
@@ -26,25 +38,87 @@
     in:fly={{y: 800, duration: 300}}
     out:fly={{y: 800, duration: 200}}
 >
-    <div style="color: {styles.textColor}">{pokemon.name}</div>
+    <button 
+        class="card--close"
+        on:click={clearSelectedPokemon}
+    >X</button>
+
+    <section class="card__module-container">
+        <InfoTab pokemon={pokemon} />
+        <SpriteTab pokemon={pokemon} />
+
+        <section class="card__module-container--details">
+            <DetailsToggle 
+                handleToggle={toggleShowMovesTab}
+                textColor={styles.textColor}
+                id={pokemon.id}
+            />
+            <div class="card__module-container--details-content">
+                {#if showMovesTab}
+                    <div>MOVES</div>
+                {:else}
+                    <StatsTab 
+                        pokemon={pokemon} 
+                        textColor={styles.textColor}
+                        backgroundColor={styles.contrastColor}
+                    />
+                {/if}
+            </div>
+        </section>
+    </section>
+
 </article>
 
 <style lang="scss">
     @import "../../styles/variables";
+    @import "../../styles/mediaqueries";
     .card {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         padding-top: $header-height;
 
         z-index: 500;
     }
-    div {
+
+    .card__module-container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &--details {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            order: 3;
+        }
+        &--details-content {
+            height: 40%;
+            width: 100%;
+            padding: 2rem 4rem;
+        }
+    }
+
+    .card--close {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 0;
+        right: 0;
+        padding-right: 2rem;
+        padding-top: calc($header-height + 2rem);
+        font-size: 4rem;
+        color: $color-white;
+        text-shadow: 0px 0px 4px $color-text;
+        background: transparent;
+        border: none;
+        &:hover {
+            cursor: pointer;
+        }
+
+        z-index: 1000;
     }
 </style>

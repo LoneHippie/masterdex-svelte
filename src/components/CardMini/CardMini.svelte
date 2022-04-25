@@ -57,7 +57,7 @@
         box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.3);
         padding: 0.5rem;
 
-        width: 11.25rem;
+        width: 95%;
         height: 18.5rem;
 
         cursor: pointer;
@@ -76,6 +76,7 @@
             width: 85%;
             height: 75%;
             image-rendering: pixelated;
+            z-index: 10;
 
             @include respond(largePhone) {
                 height: 80%;
@@ -90,6 +91,7 @@
         text-align: center;
         font-family: $font-pk;
         height: 10%;
+        z-index: 10;
         @include respond(largePhone) {
             height: 8.5%;
         }

@@ -25,14 +25,18 @@
 
         overflow-y: scroll;
 
-        @include respond(landscapePhone) {
-            grid-gap: 1.5rem;
+        @include respond(largePhone) {
+            grid-gap: 0.45rem;
         }
-
+        @include respond(landscapePhone) {
+            grid-gap: 1.75rem;
+        }
         @include respond(tablet) {
+            grid-gap: 2rem;
             grid-template-columns: repeat(4, auto);
         }  
         @include respond(laptop) {
+            grid-gap: 3rem;
             padding: 2rem 3.5rem;
         }
         @include respond(desktop) {
