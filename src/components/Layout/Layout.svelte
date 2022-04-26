@@ -7,9 +7,9 @@
     });
 </script>
 
-<main>
+<main style="--client-height: {clientHeight}px">
     <Header />
-    <section class="content" style="height: calc({clientHeight}px - 9rem)">
+    <section class="content">
         <slot/>
     </section>
 </main>
@@ -48,7 +48,7 @@
     }
     .content {
         margin-top: $header-height;
-        // height: calc(100vh - $header-height);
+        height: calc(var(--client-height) - $header-height);
         position: relative;
     }
 </style>
