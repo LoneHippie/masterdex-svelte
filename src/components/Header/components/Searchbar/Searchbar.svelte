@@ -87,7 +87,10 @@
         font-size: 2rem;
         padding: 0.5rem 0.75rem;
         border-radius: 8px;
-        border: none;
+        border-right: 2.5px solid $color-text;
+        border-bottom: 2.5px solid $color-text;
+        border-top: none;
+        border-left: none;
         z-index: 500;
 
         transition: all 300ms;
@@ -95,7 +98,8 @@
         &:hover,
         &:active {
             outline: none;
-            
+            border-right: none;
+            border-bottom: none;
             box-shadow: 0px 0px 10px 5px $color-focus;
             cursor: pointer;
         }

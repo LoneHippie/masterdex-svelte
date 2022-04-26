@@ -27,8 +27,7 @@
             height: 85%;
             width: 85%;
             image-rendering: pixelated;
-
-            // transform: translateY(-3.5%);
+            filter: drop-shadow(1.5px 3px 3px $color-text);
         }
     }
 </style>

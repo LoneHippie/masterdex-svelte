@@ -68,7 +68,7 @@
             }
         }
         &--id {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-family: $font-pk;
 
             @include respond(landscapePhone) {

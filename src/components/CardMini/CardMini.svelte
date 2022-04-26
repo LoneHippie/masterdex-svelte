@@ -54,7 +54,8 @@
         display: flex;
         flex-direction: column;
         border-radius: 6px;
-        box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.3);
+        font-family: $font-sans;
+        box-shadow: -2px 2px 6px rgba($color-text, 0.7);
         padding: 0.5rem;
 
         width: 95%;
@@ -76,6 +77,7 @@
             width: 85%;
             height: 75%;
             image-rendering: pixelated;
+            filter: drop-shadow(1.5px 3px 3px $color-text);
             z-index: 10;
 
             @include respond(largePhone) {

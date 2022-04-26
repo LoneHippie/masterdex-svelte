@@ -96,7 +96,8 @@
         &--details {
             display: flex;
             flex-direction: column;
-            height: 45%;
+            padding-top: 2.5%;
+            height: 42.5%;
             width: 100%;
         }
         &--details-content {

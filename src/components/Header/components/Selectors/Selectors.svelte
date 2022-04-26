@@ -1,7 +1,7 @@
 <script lang="ts">
     import { setByGen, setByType } from "@store/actions/pokemonListHandler";
 
-    let genSelect: number;
+    let genSelect: number | string;
     let typeSelect: string;
 
 </script>
@@ -12,7 +12,10 @@
             class="custom-select"
             id="gen-select"
             bind:value={genSelect}
-            on:change={() => setByGen(genSelect)}
+            on:change={() => {
+                setByGen(Number(genSelect))
+                typeSelect = "default";
+            }}
         >
             <option value="default" disabled>GEN</option>
             <option value="1">Gen 1</option>
@@ -30,7 +33,10 @@
             class="custom-select" 
             id="type-select"
             bind:value={typeSelect}
-            on:change={() => setByType(typeSelect)}
+            on:change={() => {
+                setByType(typeSelect)
+                genSelect = "default"
+            }}
         >
             <option value="default" disabled>TYPE</option>
             <option value="fire">FIR</option>
@@ -90,7 +96,10 @@
         background-color: $color-white;
         color: $color-pokedex-2;
         border-radius: 8px;
-        border: none;
+        border-right: 2.5px solid $color-text;
+        border-bottom: 2.5px solid $color-text;
+        border-top: none;
+        border-left: none;
 
         transition: all 300ms; 
 
