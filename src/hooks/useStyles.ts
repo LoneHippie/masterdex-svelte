@@ -99,4 +99,12 @@ const useStyles = (pokemon: Pokemon) => {
     }
 }
 
-export default useStyles;
+const useStylesByType = () => {
+    return {
+        textColorByType,
+        backgroundColorByType,
+        contrastColorByTextColor
+    }
+}
+
+export { useStyles, useStylesByType };

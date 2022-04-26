@@ -1,5 +1,6 @@
-import useStyles from "./useStyles";
+import { useStyles, useStylesByType } from "./useStyles";
 
 export {
-    useStyles
+    useStyles,
+    useStylesByType
 }

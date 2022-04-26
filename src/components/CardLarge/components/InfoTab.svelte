@@ -1,15 +1,16 @@
 <script lang="ts">
     import type { Pokemon } from "@typedefs";
-    import { useStyles } from "@hooks"
+    import { useStylesByType } from "@hooks"
 
     export let pokemon: Pokemon;
     export let textColor: string;
     export let bgColor: string;
 
-    const { backgroundColorByType, textColorByType, contrastColorByTextColor } = useStyles(pokemon);
+    const { backgroundColorByType, textColorByType } = useStylesByType();
 </script>
 
 <div class="info-container" style="color: {textColor}">
+
     <div class="info-container__general--id">
         {`Game ID: #${pokemon.id}`}
     </div>
@@ -21,7 +22,7 @@
     </div>
 
     <div class="info-container__types">
-        <span>Type:</span>
+        <span>Types:</span>
         <div>
             {#each pokemon.types as type}
                 <div
@@ -56,6 +57,8 @@
 
 <style lang="scss">
     @import "../../../styles/variables";
+    @import "../../../styles/mixins";
+    @import "../../../styles/mediaqueries";
 
     .info-container {
         display: flex;
@@ -64,22 +67,14 @@
         width: 50%;
         height: 50%;
         order: 1;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-family: $font-pk;
         padding-left: 0.75rem;
 
         &__types {
 
             &--type {
-                display: inline-block;
-                margin-top: 0.65rem;
-                padding: 0.5rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
-                border-radius: 20px;
-                text-align: center;
-                font-size: 2.5rem;
-                text-transform: capitalize;
+                @include infoLabel();
 
                 &:not(:last-child) {
                     margin-right: 1rem;
@@ -93,15 +88,7 @@
             backface-visibility: none;
 
             &--ability {
-                display: inline-block;
-                margin-top: 0.65rem;
-                padding: 0.5rem;
-                padding-left: 1rem;
-                padding-right: 1rem;
-                border-radius: 20px;
-                text-align: center;
-                font-size: 2.5rem;
-                text-transform: capitalize;
+                @include infoLabel();
 
                 cursor: pointer;
 
