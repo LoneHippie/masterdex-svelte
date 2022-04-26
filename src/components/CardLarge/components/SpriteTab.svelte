@@ -19,16 +19,16 @@
         position: relative;
         width: 50%;
         height: 55%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &--sprite {
             height: 85%;
-            width: 80%;
-            position: absolute;
-            top: 10%;
-            left: 0;
+            width: 85%;
             image-rendering: pixelated;
 
-            transform: translateY(-3.5%);
+            // transform: translateY(-3.5%);
         }
     }
 </style>

@@ -48,6 +48,8 @@
 <style lang="scss">
     @import "../../../styles/variables";
 
+    $bar-height: 2.3rem;
+
     .stats-container {
         width: 100%;
         height: 100%;
@@ -62,26 +64,31 @@
         font-family: $font-pk;
         cursor: default;
 
+        &:not(:last-child) {
+            margin-bottom: 0.3rem;
+        }
+
         &__content {
             width: 80%;
-            height: 3rem;
-            border-radius: 8px;
+            height: $bar-height;
+            border-radius: 10px;
             overflow: hidden;
 
             &--bar {
-                height: 3rem;
+                height: $bar-height;
+                border-radius: 0px 6px 8px 0px;
             }
             &--value {
                 display: block;
                 text-align: right;
-                font-size: 2.2rem;
+                font-size: 1.8rem;
                 margin-right: 0.5rem;
             }
         }
         &__label {
             width: 20%;
             margin-left: 0.75rem;
-            font-size: 2.2rem;
+            font-size: 2rem;
         }
     }
 </style>
