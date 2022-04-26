@@ -42,7 +42,8 @@
         background-color: $color-pokedex;
     }
     .content {
-        padding-top: $header-height;
-        height: 100vh;
+        margin-top: $header-height;
+        height: calc(100vh - $header-height);
+        position: relative;
     }
 </style>

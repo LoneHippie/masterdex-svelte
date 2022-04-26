@@ -32,6 +32,8 @@
     .tab_label {
         padding: 0rem 1rem;
         font-size: 2rem;
+        font-family: $font-pk;
+        font-weight: 600;
         // @include respond(tablet-1) {
         //     font-size: 2.75rem;
         // }

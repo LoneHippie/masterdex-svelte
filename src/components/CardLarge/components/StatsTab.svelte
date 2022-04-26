@@ -53,8 +53,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        padding-bottom: 3rem;
+        align-content: space-around;
     }
 
     .stat {

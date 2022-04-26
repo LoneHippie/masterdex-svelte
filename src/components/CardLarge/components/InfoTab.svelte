@@ -65,8 +65,7 @@
         flex-direction: column;
         justify-content: space-around;
         width: 50%;
-        height: 50%;
-        order: 1;
+        height: 55%;
         font-size: 2.5rem;
         font-family: $font-pk;
         padding-left: 0.75rem;

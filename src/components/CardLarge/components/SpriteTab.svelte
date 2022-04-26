@@ -17,9 +17,8 @@
 
     .sprite-container {
         position: relative;
-        order: 2;
         width: 50%;
-        height: 50%;
+        height: 55%;
 
         &--sprite {
             height: 85%;
