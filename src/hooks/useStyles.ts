@@ -85,7 +85,7 @@ const useStyles = (pokemon: Pokemon) => {
     const backgroundColor = backgroundColorByType(primaryType);
     const textColor = textColorByType(primaryType);
     const contrastColor = contrastColorByTextColor(textColor);
-    const backgroundGradient = doubleGradientByType(backgroundColor, textColor);
+    const backgroundGradient = doubleGradientByType(backgroundColor, contrastColor);
 
     return {
         backgroundColor,

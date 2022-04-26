@@ -9,7 +9,7 @@
     const { backgroundColorByType, textColorByType } = useStylesByType();
 </script>
 
-<div class="info-container" style="color: {textColor}">
+<div class="info-container" style="color: {bgColor}">
 
     <div class="info-container__general--id">
         {`Game ID: #${pokemon.id}`}
@@ -28,7 +28,7 @@
                 <div
                     class="info-container__types--type"
                     style="
-                        border: 2px solid {textColor};
+                        border: 2px solid {bgColor};
                         background: {backgroundColorByType(type.type.name)};
                         color: {textColorByType(type.type.name)};
                     "
@@ -45,8 +45,8 @@
             <div
                 class="info-container__abilities--ability"
                 style="
-                    border: 2px solid {textColor};
-                    background: {bgColor};
+                    border: 2px solid {bgColor};
+                    background: {textColor};
                 "
             >
                 {ability.ability.name}
