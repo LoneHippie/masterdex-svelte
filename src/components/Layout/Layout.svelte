@@ -1,10 +1,15 @@
 <script lang="ts">
     import Header from "../Header/Header.svelte";
+
+    let clientHeight: number = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    window.addEventListener('resize', () => {
+        clientHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    });
 </script>
 
 <main>
     <Header />
-    <section class="content">
+    <section class="content" style="height: calc({clientHeight}px - 9rem)">
         <slot/>
     </section>
 </main>
@@ -43,7 +48,7 @@
     }
     .content {
         margin-top: $header-height;
-        height: calc(100vh - $header-height);
+        // height: calc(100vh - $header-height);
         position: relative;
     }
 </style>
