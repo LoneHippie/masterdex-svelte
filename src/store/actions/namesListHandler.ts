@@ -4,7 +4,7 @@ import type { Pokemon } from "@typedefs";
 
 const setNamesList = async() => {
     searchPokemon.getAllNames()
-        .then(list => {
+        .then((list: Pokemon[]) => {
             return list.map((el: Pokemon) => el.name)
         })
         .then((resList: string[]) => {

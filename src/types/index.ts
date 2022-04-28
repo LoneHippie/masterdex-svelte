@@ -42,4 +42,19 @@ export type Pokemon = {
     weight: number;
     sprite: string | null;
     specs: Specs;
+    moves: Array<Move>;
+}
+
+export type Move = {
+    move: {
+        name: string;
+        id: number;
+        generation_id: number;
+        move_damage_class_id: number;
+        move_effect_chance?: number 
+        move_effect_id: number;
+        type_id: number;
+        pp: number;
+        power?: number;
+    }
 }

@@ -1,6 +1,6 @@
 import { pokemonList, isLoading } from "@store/store";
 import type { Pokemon } from "@typedefs";
-import { genQuery, typeQuery, searchQuery, namesQuery } from "../../api/pokeapi";
+import { genQuery, typeQuery, searchQuery, namesQuery, movePoolQuery } from "../../api/pokeapi";
 import { clearSelectedPokemon } from "./pokemonHandler";
 
 enum queryAction {
@@ -14,7 +14,8 @@ export const searchPokemon = {
     byType: async (type: string) => await typeQuery(type),
     byName: async (name: string) => await searchQuery(name),
 
-    getAllNames: async() => await namesQuery()
+    getAllNames: async() => await namesQuery(),
+    getMovePool: async(id: number) => await movePoolQuery(id)
 }
 
 const runSearch = async(action: queryAction, param: any): Promise<Pokemon[]> => {
