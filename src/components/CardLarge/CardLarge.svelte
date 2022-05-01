@@ -9,6 +9,10 @@
     import DetailsToggle from "./components/DetailsToggle.svelte";
     import StatsTab from "./components/StatsTab.svelte";
 
+    import { movePool } from "@store/store";
+    import { setMovePool } from "@store/actions/movepoolHandler";
+import MovesTab from "./components/MovesTab.svelte";
+
     export let pokemon: Pokemon;
 
     let showMovesTab: boolean = false;
@@ -21,6 +25,10 @@
         backgroundGradient: "",
         contrastColor: ""
     }
+
+    setMovePool(pokemon.id);
+
+    $: console.log($movePool)
 
     $: {
         const { backgroundColor, textColor, typeIcons, backgroundGradient, contrastColor } = useStyles(pokemon);
@@ -59,7 +67,10 @@
             />
             <div class="card__module-container--details-content">
                 {#if showMovesTab}
-                    <div>MOVES</div>
+                    <MovesTab 
+                        movePool={$movePool}
+                        outlineColor={styles.textColor}
+                    />
                 {:else}
                     <StatsTab 
                         pokemon={pokemon} 
@@ -101,9 +112,10 @@
             width: 100%;
         }
         &--details-content {
-            height: 40%;
+            height: 100%;
             width: 100%;
-            padding: 2rem 4rem;
+            padding: 2rem 2rem;
+            position: relative;
         }
     }
 
