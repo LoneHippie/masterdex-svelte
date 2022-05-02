@@ -56,5 +56,11 @@ export type Move = {
         type_id: number;
         pp: number;
         power?: number;
+        damageClass?: {
+            name: string;
+        }
+        type: {
+            name: string;
+        }
     }
 }

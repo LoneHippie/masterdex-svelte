@@ -16,6 +16,12 @@ export function movePoolQuery(id: number) {
                     type_id
                     pp
                     power
+                    damageClass: pokemon_v2_movedamageclass {
+                        name
+                    }
+                    type: pokemon_v2_type {
+                        name
+                    }
                 }
             }
         }

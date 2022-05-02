@@ -27,7 +27,7 @@ export async function pokeapiQuery<Type>(options: Object): Promise<void | Type> 
         });
     };
     const handleData = (data: any): Type => {
-        return data.data.pokeRes;
+        return data.data[pokeapiNamespace];
     };
     const handleError = (err: Error): void => {
         console.log(err);
