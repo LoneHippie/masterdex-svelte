@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Move } from "@typedefs";
+    import MoveMini from "./MoveMini.svelte";
 
     export let movePool: Move[];
     export let outlineColor: string;
@@ -9,9 +10,10 @@
 
     <div class="moves">
         {#each movePool as move}
-            <div class="moves--move" style="border: 1px solid {outlineColor}">
-                {move.move.name}
-            </div>
+            <MoveMini 
+                move={move}
+                outlineColor={outlineColor}
+            />
         {/each}
     </div>
 
@@ -38,10 +40,5 @@
         display: grid;
         grid-template-columns: repeat(3, auto);
         grid-gap: 0.5rem;
-
-        &--move {
-            border-radius: 8px;
-            font-size: 1.5rem;
-        }
     }
 </style>
