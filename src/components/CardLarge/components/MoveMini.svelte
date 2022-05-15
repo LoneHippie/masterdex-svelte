@@ -13,19 +13,20 @@
 <div 
     class="move" 
     style="
-        border: 1.5px solid {outlineColor};
+        border: 2px solid {outlineColor};
         background: {backgroundColor};
         color: {textColor};
-    ">
+    "
+>
     <div class="move__info">
-        <span>lvl ...</span>
-        <span>egg</span>
+        <span>lvl {move.level}</span>
+        <span>{move.learnMethod.name}</span>
     </div>
     <div class="move__name">
         {move.move.name}
     </div>
     <div class="move__info">
-        <span>{move.move.pp}</span>
+        <span>{move.move.pp} pp</span>
         <span>{move.move.damageClass.name}</span>
     </div>
 </div>

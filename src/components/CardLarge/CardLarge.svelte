@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { Pokemon } from "@typedefs";
-    import { clearSelectedPokemon } from "@store/actions/pokemonHandler";
+  import type { Pokemon } from "@typedefs";
+  import { clearSelectedPokemon } from "@store/actions/pokemonHandler";
     import { useStyles } from "@hooks";
     import { fly } from "svelte/transition";
 
@@ -11,7 +11,7 @@
 
     import { movePool } from "@store/store";
     import { setMovePool } from "@store/actions/movepoolHandler";
-import MovesTab from "./components/MovesTab.svelte";
+    import MovesTab from "./components/MovesTab.svelte";
 
     export let pokemon: Pokemon;
 
@@ -27,8 +27,6 @@ import MovesTab from "./components/MovesTab.svelte";
     }
 
     setMovePool(pokemon.id);
-
-    $: console.log($movePool)
 
     $: {
         const { backgroundColor, textColor, typeIcons, backgroundGradient, contrastColor } = useStyles(pokemon);
@@ -67,10 +65,17 @@ import MovesTab from "./components/MovesTab.svelte";
             />
             <div class="card__module-container--details-content">
                 {#if showMovesTab}
-                    <MovesTab 
-                        movePool={$movePool}
-                        outlineColor={styles.textColor}
-                    />
+                    {#if $movePool.length}
+                        <MovesTab 
+                            movePool={$movePool}
+                            outlineColor={styles.textColor}
+                            contrastColor={styles.contrastColor}
+                        />
+                    {:else}
+                        <div class="moves-loading">
+                            LOADING
+                        </div>
+                    {/if}
                 {:else}
                     <StatsTab 
                         pokemon={pokemon} 

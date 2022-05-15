@@ -25,6 +25,7 @@
         justify-content: center;
         align-items: center;
         height: 10%;
+        margin-bottom: 1rem;
 
         cursor: default;
     }
