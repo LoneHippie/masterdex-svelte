@@ -6,8 +6,8 @@ const setMovePool = async(pokemonId: number) => {
     movePool.set([]);
     searchPokemon.getMovePool(pokemonId)
         .then((moves: Move[]) => {
-            const moveIds = moves.map(el => el.move.id)
-            const filteredMoves = moves.filter((el: Move, index) => moveIds.includes(el.move.id, index + 1))
+            const uniqueSet = new Set(moves.map(el => JSON.stringify(el)));
+            const filteredMoves = Array.from(uniqueSet).map(el => JSON.parse(el));
             movePool.update(state => {
                 return state = filteredMoves
             })

@@ -1,4 +1,4 @@
-export const url: string = "https://beta.pokeapi.co/graphql/v1beta"
+const url: string = "https://beta.pokeapi.co/graphql/v1beta"
 export const pokeapiNamespace = `pokeRes`;
 
 const standardOnly = true;
@@ -20,13 +20,13 @@ export const queryOptions = (query: string) => {
     }
 };
 
-export async function pokeapiQuery<Type>(options: Object): Promise<void | Type> {
+export async function pokeapiQuery<T>(options: Object): Promise<void | T> {
     const handleResponse = (res: any) => {
         return res.json().then((resJSON: JSON) => {
             return res.ok ? resJSON : Promise.reject(resJSON)
         });
     };
-    const handleData = (data: any): Type => {
+    const handleData = (data: any): T => {
         return data.data[pokeapiNamespace];
     };
     const handleError = (err: Error): void => {

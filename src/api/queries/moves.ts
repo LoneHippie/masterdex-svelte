@@ -13,7 +13,6 @@ export function movePoolQuery(id: number) {
                     move_damage_class_id
                     move_effect_chance
                     move_effect_id
-                    type_id
                     pp
                     power
                     damageClass: pokemon_v2_movedamageclass {
@@ -23,6 +22,10 @@ export function movePoolQuery(id: number) {
                         name
                     }
                 }
+                learnMethod: pokemon_v2_movelearnmethod {
+                    name
+                }
+                level
             }
         }
     `;

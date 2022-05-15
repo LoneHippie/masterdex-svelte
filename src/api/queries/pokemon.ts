@@ -29,6 +29,7 @@ const pokemon_v2 = `
             color: pokemon_v2_pokemoncolor {
                 name
             }
+            genId: generation_id
         }
     `
 ;

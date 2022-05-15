@@ -29,6 +29,7 @@ interface Specs {
     color: {
         name: string;
     }
+    genId: number;
 }
 
 export type Pokemon = {
@@ -53,14 +54,17 @@ export type Move = {
         move_damage_class_id: number;
         move_effect_chance?: number 
         move_effect_id: number;
-        type_id: number;
         pp: number;
         power?: number;
-        damageClass?: {
+        damageClass: {
             name: string;
         }
         type: {
             name: string;
         }
     }
+    learnMethod: {
+        name: string;
+    }
+    level: string;
 }
